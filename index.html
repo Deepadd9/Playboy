@@ -3,126 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playboy</title>
+    <title>Playboy - Join Our Community</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe, #00f2fe);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
             background-size: 400% 400%;
-            animation: shift 15s infinite;
+            animation: shift 15s ease infinite;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 5px;
+            padding: 20px;
         }
         @keyframes shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
         
-        .box {
-            width: 320px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 15px;
-            padding: 15px;
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            animation: slideIn 0.8s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
         }
-        .logo { font-size: 1.6em; font-weight: bold; background: linear-gradient(135deg, #ff006e, #ffbe0b, #3a86ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px; }
-        .title { font-size: 1.1em; color: #333; margin-bottom: 10px; font-weight: bold; }
-        .desc { font-size: 0.75em; color: #666; margin-bottom: 10px; }
-        
-        .btn-box {
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 8px;
-            transition: 0.3s;
-        }
-        .btn-box:hover { transform: scale(1.02); }
-        .btn-box-green { background: linear-gradient(135deg, #22c55e, #16a34a); }
-        
-        .logo-sm { width: 30px; height: 30px; color: white; margin: 0 auto 3px; }
-        .text-sm { color: white; font-size: 0.8em; font-weight: 600; margin-bottom: 3px; }
-        .btn { 
-            display: inline-block; 
-            color: white; 
-            text-decoration: none; 
-            font-size: 0.8em; 
-            padding: 5px 12px; 
-            background: rgba(255,255,255,0.2); 
-            border-radius: 5px; 
-            border: 1px solid white; 
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .btn:hover { background: white; color: #0099ff; }
-        .btn-green:hover { color: #16a34a; }
-        
-        .timer-box {
-            background: #f0f0f0;
-            border-radius: 6px;
-            padding: 8px;
-            margin-bottom: 8px;
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ff006e, #ffbe0b);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            font-size: 60px;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+            animation: bounce 2s ease-in-out infinite;
         }
-        #timer { font-size: 1.5em; font-weight: bold; background: linear-gradient(135deg, #ff006e, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse 1s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-        .timer-label { font-size: 0.75em; color: #888; font-weight: 600; }
-        
-        .redirect { font-size: 0.7em; color: #999; margin-top: 5px; animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        
-        .footer { font-size: 0.65em; color: #ccc; margin-top: 5px; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .logo-text {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff006e, #ffbe0b, #3a86ff, #8338ec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 0, 110, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            color: #555;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section {
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-1 { animation-delay: 0.2s; }
+        .section-2 { animation-delay: 0.4s; }
+        .section-3 { animation-delay: 0.6s; }
+
+        .title {
+            font-size: 2.2em;
+            background: linear-gradient(135deg, #ff006e, #764ba2, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .description {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .button-box {
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 35px rgba(0, 153, 255, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .button-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0, 153, 255, 0.5);
+        }
+
+        .button-box-green {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            box-shadow: 0 10px 35px rgba(34, 197, 94, 0.3);
+        }
+
+        .button-box-green:hover {
+            box-shadow: 0 15px 45px rgba(34, 197, 94, 0.5);
+        }
+
+        .telegram-icon {
+            width: 60px;
+            height: 60px;
+            color: white;
+            margin: 0 auto 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .button-text {
+            color: white;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .button-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 12px 35px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button-link:hover {
+            background: white;
+            color: #0099ff;
+            transform: scale(1.05);
+        }
+
+        .button-box-green .button-link:hover {
+            color: #16a34a;
+        }
+
+        .timer-section {
+            background: linear-gradient(135deg, #f0f0f0, #e8e8e8);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .timer-label {
+            font-size: 1.1em;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timer-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        #timer {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff006e, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+
+        .timer-unit {
+            font-size: 1.3em;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .redirect-info {
+            text-align: center;
+            color: #999;
+            font-size: 1em;
+            margin-top: 15px;
+            font-style: italic;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .features {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-icon {
+            font-size: 1.3em;
+        }
+
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 0.95em;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            .logo-img { width: 100px; height: 100px; font-size: 50px; }
+            .logo-text { font-size: 2.5em; }
+            .tagline { font-size: 1.2em; }
+            .title { font-size: 1.6em; }
+            .description { font-size: 0.95em; }
+            #timer { font-size: 2.5em; }
+            .button-text { font-size: 1.1em; }
+            .telegram-icon { width: 50px; height: 50px; }
+        }
+
+        @media (max-width: 400px) {
+            .container { padding: 20px 15px; }
+            .logo-img { width: 80px; height: 80px; font-size: 40px; }
+            .logo-text { font-size: 2em; }
+            .tagline { font-size: 1em; }
+            .title { font-size: 1.3em; }
+            #timer { font-size: 2em; }
+            .button-box { padding: 15px; }
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="logo">🎉 PLAYBOY</div>
-        <div class="title">Join Us</div>
-        <p class="desc">Exclusive content & updates</p>
-        
-        <div class="btn-box">
-            <svg class="logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
-                <path d="M8 12L16 8M8 12L16 16M8 12L11 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <p class="text-sm">Join Telegram</p>
-            <a href="https://t.me/+Xl6QcJluS9w1YzM9" class="btn">Click</a>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-img">🎬</div>
+            <div class="logo-text">PLAYBOY</div>
+            <p class="tagline">Join Our Exclusive Community</p>
         </div>
 
-        <div class="timer-box">
-            <span id="timer">10</span>
-            <span class="timer-label">sec</span>
+        <!-- Main Content -->
+        <div class="main">
+            <!-- First Section -->
+            <section class="section section-1">
+                <h1 class="title">Welcome to Playboy!</h1>
+                <p class="description">Experience the ultimate entertainment and lifestyle destination. Join thousands of members in our exclusive community for amazing content, updates, and connections.</p>
+                
+                <div class="button-box">
+                    <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 12L16 8M8 12L16 16M8 12L11 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p class="button-text">Join Our Telegram</p>
+                    <a href="https://t.me/+Xl6QcJluS9w1YzM9" class="button-link">Click to Join</a>
+                </div>
+            </section>
+
+            <!-- Timer Section -->
+            <section class="section section-2">
+                <div class="timer-section">
+                    <div class="timer-label">⏱️ Redirecting in:</div>
+                    <div class="timer-display">
+                        <span id="timer">10</span>
+                        <span class="timer-unit">seconds</span>
+                    </div>
+                    <p class="redirect-info">Auto-redirecting to Telegram...</p>
+                </div>
+            </section>
+
+            <!-- Second Section -->
+            <section class="section section-3">
+                <h2 class="title">🌟 Don't Miss Out!</h2>
+                <p class="description">Get exclusive updates, connect with our amazing community, and enjoy premium content that you won't find anywhere else.</p>
+                
+                <div class="button-box button-box-green">
+                    <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 12L16 8M8 12L16 16M8 12L11 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p class="button-text">Join Channel Now</p>
+                    <a href="https://t.me/+Xl6QcJluS9w1YzM9" class="button-link">Join Here</a>
+                </div>
+
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <span>Exclusive Content & Updates</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👥</span>
+                        <span>Connect with Amazing Community</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎁</span>
+                        <span>Special Offers & Rewards</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">24/7</span>
+                        <span>Round the Clock Support</span>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div class="btn-box btn-box-green">
-            <svg class="logo-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
-                <path d="M8 12L16 8M8 12L16 16M8 12L11 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <p class="text-sm">Join Channel</p>
-            <a href="https://t.me/+Xl6QcJluS9w1YzM9" class="btn btn-green">Go</a>
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Playboy Community. All Rights Reserved. | Join Today!</p>
         </div>
-
-        <p class="redirect">⏳ Redirecting...</p>
-        <div class="footer">© 2024 Playboy</div>
     </div>
 
     <script>
-        let t = 10;
-        setInterval(() => {
-            t--;
-            document.getElementById('timer').textContent = t;
-            if (t <= 0) window.location.href = 'https://t.me/+Xl6QcJluS9w1YzM9';
+        let countdown = 10;
+        const timerElement = document.getElementById('timer');
+        const telegramLink = 'https://t.me/+Xl6QcJluS9w1YzM9';
+
+        const timerInterval = setInterval(() => {
+            countdown--;
+            timerElement.textContent = countdown;
+
+            if (countdown <= 0) {
+                clearInterval(timerInterval);
+                window.location.href = telegramLink;
+            }
         }, 1000);
-        
-        document.querySelectorAll('.btn').forEach(b => b.addEventListener('click', e => {
-            e.preventDefault();
-            window.location.href = 'https://t.me/+Xl6QcJluS9w1YzM9';
-        }));
+
+        // Click handlers for all links
+        document.querySelectorAll('.button-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                clearInterval(timerInterval);
+                window.location.href = telegramLink;
+            });
+        });
+
+        console.log('%c🎉 Welcome to Playboy! 🚀', 'font-size: 20px; color: #ff006e; font-weight: bold;');
+        console.log('%cJoin us on Telegram: https://t.me/+Xl6QcJluS9w1YzM9', 'font-size: 14px; color: #0099ff;');
     </script>
 </body>
 </html>
